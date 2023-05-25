@@ -1,0 +1,4 @@
+// Indicamos a que base de datos queremos conectarnos
+use("sample_training");
+
+db.zips.find({ state: "NY" }).count();
