@@ -1,0 +1,13 @@
+// Si no esta creada la base de datos, la va a crear
+use("platzi_store");
+
+db.products.insertOne({
+    // _id:1 -- Podemos indicar os ids, pero si n lo hacemo mongo se encarga de generarlos
+    name: "Producto 1",
+    price: 7500
+});
+
+db.products.insertOne({
+    name: "Producto 2",
+    price: 12400
+});

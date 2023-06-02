@@ -1,0 +1,14 @@
+use("sample_training");
+
+db.zips.updateMany(
+    // Query o filter
+    {
+        city: "CLEVELAND"
+    },
+    // Que vamos a actualizar, en este caso incrementar campo
+    {
+        // Actualiza y si no existe, agrega un nuevo campo
+        $set: {
+            myAttr: "Este es nuevo atributo"
+        }
+    });

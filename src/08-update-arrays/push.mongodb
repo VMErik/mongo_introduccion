@@ -1,0 +1,11 @@
+use("platzi_store");
+
+
+// Para insertar mas de un elemetno sin neesidad de tener que repetir la sentencia 
+db.inventory.updateOne({}, {
+    $push: {
+        tags: {
+            $each: ["music", "food"]
+        }
+    }
+})

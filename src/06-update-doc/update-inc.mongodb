@@ -1,0 +1,13 @@
+use("platzi_store");
+db.products.updateOne(
+    // Incluimos el query, osea que actualice el id 4
+    { _id: 4 }, {
+        // Indicamos qcon el inc que vamos a incrementar
+        $inc: {
+            // Que campos vamos a incrementar
+            // A nuestro campo price, le vamos a incrementar 100
+            price: 100
+        }
+    });
+
+db.products.find();

@@ -1,0 +1,14 @@
+use("sample_training");
+
+db.zips.updateMany(
+    // Query o filter
+    {
+        city: "CLEVELAND"
+    },
+    // Que vamos a actualizar, en este caso incrementar campo
+    {
+        // Actualiza el nombre del atributo sin cambiar el valor 
+        $rename: {
+            myAttr: "my_Attr"
+        }
+    });

@@ -1,0 +1,15 @@
+version: '3.9'
+
+# Damos de alta nuestros servicios
+services:
+  mongodb:
+    image: mongo:5.0
+    ports:
+    # Puerto que usa mongo por default
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root123
+    # Forma en omo va a correr
+    volumes:
+      - ./mongo_data:/data/db

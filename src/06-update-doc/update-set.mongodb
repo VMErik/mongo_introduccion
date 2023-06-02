@@ -1,0 +1,12 @@
+use("platzi_store");
+db.products.updateOne(
+    // Incluimos el query, osea que actualice el id 4
+    { _id: 4 }, {
+        // Indicamos que vamos a acutalizar
+        $set: {
+            // Que campos vamos a camiar
+            name: "Producto cambiado"
+        }
+    });
+
+db.products.find();

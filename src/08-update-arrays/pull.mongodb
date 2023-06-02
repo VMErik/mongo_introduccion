@@ -1,0 +1,16 @@
+use("platzi_store");
+
+
+// Quitammreos del array tags, un elemento , al no mandar filtro lo hara con todos.
+db.inventory.updateMany({}, {
+    $pull: {
+        tags: "book"
+    }
+})
+
+// Asi quitamos mas de un elemento, para no tener que hacerlo doble
+db.inventory.updateMany({}, {
+    $pullAll: {
+        tags: ["school", "appliance"]
+    }
+})

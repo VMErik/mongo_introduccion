@@ -1,0 +1,15 @@
+use("sample_training");
+
+
+// Actualiamos muchos
+db.zips.updateMany(
+    // Query o filter
+    {
+        city: "CLEVELAND"
+    },
+    // Que vamos a actualizar, en este caso incrementar campo
+    {
+        $inc: {
+            pop: 100
+        }
+    });

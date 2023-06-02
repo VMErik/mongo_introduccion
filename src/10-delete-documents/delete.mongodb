@@ -1,0 +1,18 @@
+use("platzi_store")
+
+
+// Eliminamos por id
+db.products.deleteOne({
+    _id: 1
+});
+
+
+// Eliminamos varios 
+db.products.deleteMany(
+    // Mandamos nuestro where
+    {
+        price: 100
+    });
+
+// Eliminta todos los documentos
+db.products.drop()

@@ -1,0 +1,16 @@
+use("platzi_store")
+
+
+// Mogngo puede diferenciar si tiene que insertar o editar en caso de que exista 
+db.iot.updateOne({
+        sensor: "A001",
+        date: "2022-01-04"
+    }, {
+        $push: {
+            readings: 2323
+        }
+    },
+    // Indicamos que diferencie si es insert o update
+    {
+        upsert: true
+    })

@@ -1,0 +1,5 @@
+// Indicamos a que base de datos queremos conectarnos
+use("platzi_store");
+
+// Hacemos la consulta a la coleccion de products
+db.products.find();

@@ -1,0 +1,37 @@
+use("platzi_store");
+
+db.products.drop(); // Se utiliza para vaciar la coleccion
+
+// INsertamos multiples registros
+db.products.insertMany([{
+        _id: 1,
+        name: "Producto 1", //
+        price: 1450
+    }, {
+        _id: 2,
+        name: "Producto 2", //
+        price: 1450
+    }, {
+        _id: 3,
+        name: "Producto 3", //
+        price: 1450
+    }, {
+        _id: 4,
+        name: "Producto 4", //
+        price: 1450
+    },
+    {
+        _id: 4,
+        name: "Producto 4", //
+        price: 1450
+    }
+], {
+    ordered: false, // Se especifica para si hay errores de duplicidad solo eso deje fuer
+});
+
+// Cuando especificamos el id y se encuentra un duplicado
+// va  a meter los primeros y cuando hay una falla 
+// o duplicidad no inserta desde ese a los siguientes
+
+
+db.products.find(); // Consultamos
