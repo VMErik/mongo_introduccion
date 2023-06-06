@@ -1,0 +1,21 @@
+use("sample_training")
+
+
+db.trips.find();
+
+// Proyection solo se utiliza para obtener los datos que nos interesen
+// La forma de traerlos, es colocando un 1 igualandolo en el campo
+db.trips.find(
+    // Query
+    {
+        usertype: {
+            $eq: "Subscriber"
+        }
+    },
+    // Proyection
+    {
+        tripduration: 1,
+        bikeid: 1,
+        // _id : 0 // Si queremos que no traiga el id, tenemos que marcarlo con 0
+    }
+)

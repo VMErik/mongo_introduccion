@@ -1,0 +1,40 @@
+use("platzi_store")
+
+// Asi buscamos por cadenas de texto, igual
+db.inventory.find({
+    "item.description": {
+        $eq: "Single line description."
+    }
+})
+
+// Todo lo que tenga el patron line, dsimilar al like en sql
+db.inventory.find({
+    "item.description": {
+        $regex: /line/
+    }
+})
+
+// Hacemos que no sea sentivie case, osea que no importa si es mayus o minus
+// Agregando la letra i al final
+db.inventory.find({
+    "item.description": {
+        $regex: /LINE/i
+    }
+})
+
+
+
+// Colocando el signo de pesos indicamos que termine con la palabra 
+// Y Agregando la i, estamso indicando que no sea case sensitive
+db.inventory.find({
+    "item.description": {
+        $regex: /line$/i
+    }
+})
+
+// Con el simbolo ^ indicamos que lo busqeu al principio
+db.inventory.find({
+    "item.description": {
+        $regex: /^single/i
+    }
+})

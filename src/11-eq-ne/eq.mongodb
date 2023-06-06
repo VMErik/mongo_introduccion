@@ -1,0 +1,15 @@
+use("platzi_store");
+
+
+// Implicito
+db.inventory.find({
+    qty: 20
+});
+
+// Explicito
+// Todos los productos con cantidad 20
+db.inventory.find({
+    qty: {
+        $eq: 20
+    }
+});

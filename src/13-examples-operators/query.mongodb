@@ -1,0 +1,7 @@
+use("platzi_store")
+
+db.iot.drop()
+
+
+
+db.iot.find()

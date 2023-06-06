@@ -1,0 +1,77 @@
+use("platzi_store")
+
+// *************************************
+// $ in, obtener dentro de un array los elementos
+// Sirve para objetos y para arrays
+// Tiene un uso de OR , sirve valores numeriso o arreglos
+db.inventory.find({
+    // La cantidad sea 20 o 25
+    qty: {
+        // Siempre se manda un array
+        $in: [20, 25]
+    }
+})
+
+
+// Podemos indicar que dentro de tags, nos traiga los que tengan book o applance
+db.inventory.find({
+    tags: {
+        $in: ["book", "appliance"]
+    }
+})
+
+
+// *************************************
+// $nin elementos donde no esten el 20 y el 25 es el contrario de in 
+db.inventory.find({
+    // La cantidad sea 20 o 25
+    qty: {
+        // Siempre se manda un array
+        $nin: [20, 25]
+    }
+})
+
+// Que los tags no contengan bool o appliance
+db.inventory.find({
+    tags: {
+        $nin: ["appliance"]
+    }
+})
+
+
+
+// *************************************
+// Arrays
+// Me tae el que cumple solo con el mismo orden y la misma palabras
+db.inventory.find({
+    tags: ["school", "book"]
+})
+
+
+// Nos trae los que contengan alguno de los dos elementos  o book o school sin importar el orden
+db.inventory.find({
+    tags: {
+        $all: ["book", "school"]
+    }
+})
+
+
+// Que el tamañlo de un array sea de algo en especifico, sin importan lo que tenga dentro 
+db.inventory.find({
+    tags: {
+        $size: 2
+    }
+})
+
+
+
+
+// $eleMatch
+// Si tiene algun objeto que tenga lo que le estamos mandando lo trae
+// Y trae el objeto completo, aplicarlo compuesto
+// EN esste ejemplo que contenga producto xyz y su score sea mahyor o igual a 8
+db.survey.find({
+    results: {
+        $elemMatch: { product: "xyz", score: { $gte: 8 } }
+    }
+})

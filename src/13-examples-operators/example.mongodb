@@ -1,0 +1,15 @@
+use("platzi_store")
+
+
+
+// Actualizamos el sensor A001, eliminando los readins
+// que sean maor o igual a 3
+db.iot.updateMany({
+    sensor: "A001"
+}, {
+    $pull: {
+        readings: {
+            $gte: 3
+        }
+    }
+});

@@ -1,0 +1,40 @@
+use("platzi_store")
+
+// Usando $gt (Mayor que) y $gte (Mayor  o igual)
+// Mostrando mayor que 1020
+db.inventory.find({
+    qty: {
+        $gt: 1020
+    }
+})
+
+// Mostrando mayor que 1015
+db.inventory.find({
+    qty: {
+        $gte: 1015
+    }
+})
+
+// Valores menor a 1015
+db.inventory.find({
+    qty: {
+        $lt: 1015
+    }
+})
+
+// Valores menor o igual a 1015
+db.inventory.find({
+    qty: {
+        $lte: 1015
+    }
+})
+
+
+// Condicionales anidadas
+// Mayor o igual a 1015, pero menos a 1030
+db.inventory.find({
+    qty: {
+        $gte: 1015,
+        $lt: 1030
+    }
+})

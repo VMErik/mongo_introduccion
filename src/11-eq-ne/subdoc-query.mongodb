@@ -1,0 +1,17 @@
+use("platzi_store")
+
+// Cuando queremos hacer consultar por sub documentos 
+// Es necesario colocal entre comillas la propiedad
+
+// Implicito
+db.inventory.find({
+    "item.name": "ab"
+});
+
+
+// Explicito
+db.inventory.find({
+    "item.name": {
+        $eq: "ab"
+    }
+});
